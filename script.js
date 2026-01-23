@@ -26,3 +26,19 @@ botão.addEventListener("click", () => {
         som.pause();  // Se estiver tocando, pausa
     }
 });
+
+const barra = document.getElementById('barra-progresso');
+
+som.addEventListener('timeupdate',() => {
+
+  if (som.duration) { 
+    barra.value = (som.currentTime/ som.duration) * 100;
+  }
+  });
+
+  barra.addEventListener("input", () => {
+   if (som.duration) {
+      som.currentTime =(barra.value/100)*som.duration;
+   }
+  });
+  

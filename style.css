@@ -82,3 +82,19 @@ footer {
 }
 
 
+input[type="text"] { 
+    width: 70%;
+    display: block;
+    margin-top: 50px;
+    
+   
+}
+
+input[type="text"]:focus {
+    border-color:#b44c92;
+    outline: none;
+   
+
+
+
+}
