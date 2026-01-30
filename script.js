@@ -49,7 +49,7 @@ som.addEventListener('timeupdate',() => {
     const icone = document.getElementById ('botão-controle');
 
     try {
-      const resposta = await fetch(`https://listenfree.in/search?q=${buscar}`);
+      const resposta = await fetch(`https://itunes.apple.com{encodeURIComponent(termo)}&entity=song&limit=1`);
       
       if (!resposta.ok) {
         throw new Error('Erro na rede');
@@ -58,13 +58,13 @@ som.addEventListener('timeupdate',() => {
     const dados = await resposta.json();
 
     const imagem = document.getElementById('capa');
-    imagem.src = dados.data[0].image;
+    imagem.src = musica.artworkUrl100;
 
     const titulo = document.getElementById('Nome-musica');
-    titulo.innerText = dados.data[0].song;
+    titulo.innerText = musica.trackName;
 
     const som = document.getElementById('musica')
-    som.src= dados.data[0].downloadUrl;
+    som.src = musica.previewUrl;
 
     som.play();
     icone.classList.replace('fa-play', 'fa-pause');
