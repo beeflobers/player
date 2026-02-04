@@ -49,7 +49,7 @@ som.addEventListener('timeupdate',() => {
     const icone = document.getElementById ('botão-controle');
 
     try {
-      const resposta = await fetch(`https://saavn.sumit.co/api/search?query=${termoPesquisado}`);
+      const resposta = await fetch(`https://listenfree.in/search?q=${buscar}`);
       
       if (!resposta.ok) {
         throw new Error('Erro na rede');
@@ -57,17 +57,18 @@ som.addEventListener('timeupdate',() => {
       
     const dados = await resposta.json();
 
-    if (dados.data && dados.data.songs && dados.data.songs.results.length > 0) {
-    const musica = dados.data.songs.results[0]; 
+    const imagem = document.getElementById('capa');
+    imagem.src = dados.data[0].image;
 
-    
-    document.getElementById('capa').src = musica.image[2].url;
-    document.getElementById('Nome-musica').innerText = musica.title;
-    
-    const som = document.getElementById('musica');
-    som.src = musica.downloadUrl[0].url;
-      som.play();
-      icone.classList.replace('fa-play', 'fa-pause');
+    const titulo = document.getElementById('Nome-musica');
+    titulo.innerText = dados.data[0].song;
+
+    const som = document.getElementById('musica')
+    som.src= dados.data[0].downloadUrl;
+
+    som.play();
+    icone.classList.replace('fa-play', 'fa-pause');
+
     }
 
   }
