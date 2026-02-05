@@ -27,6 +27,7 @@ botão.addEventListener("click", () => {
     }
 });
 
+
 const barra = document.getElementById('barra-progresso');
 
 som.addEventListener('timeupdate',() => {
@@ -42,20 +43,25 @@ som.addEventListener('timeupdate',() => {
    }
   });
 
-  async function buscar () {
-    const buscar = document.getElementById('buscar').value;
-    
 
+
+    async function buscar() {
+    const buscar = document.getElementById('buscar').value;
     const icone = document.getElementById ('botão-controle');
 
-    try {
-      const resposta = await fetch(`https://itunes.apple.com{encodeURIComponent(termo)}&entity=song&limit=1`);
+    const proxy = 'https://cors-anywhere.herokuapp.com/';
+    const urlApple = `https://itunes.apple.com/search?term=${encodeURIComponent(buscar)}&entity=song&limit=1`;
+
+     try {
+      const resposta = await fetch (proxy + urlApple);
       
       if (!resposta.ok) {
         throw new Error('Erro na rede');
       }
-      
+
     const dados = await resposta.json();
+    const musica = dados.results[0];
+    
 
     const imagem = document.getElementById('capa');
     imagem.src = musica.artworkUrl100;
@@ -67,11 +73,10 @@ som.addEventListener('timeupdate',() => {
     som.src = musica.previewUrl;
 
     som.play();
-    icone.classList.replace('fa-play', 'fa-pause');
-
+    icone.classList.replace('fa-play', 'fa-pause ');
     }
-    catch(error) {
+
+    catch (error) {
       console.log("Ops, algo deu errado:", error);
     }
-     
   }
