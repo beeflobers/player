@@ -7,7 +7,12 @@ const pauseIcon = btn.querySelector('.Pause');
 const botão = document.getElementById('botão-controle'); 
 const som = document.getElementById("musica");
 const barra = document.getElementById('barra-progresso');
+const pesquisar = document.getElementById ('pesquisar')
 
+
+pesquisar.addEventListener("click", () => {
+  buscar();
+  });
 
 botão.addEventListener("click", () => { 
     if (som.paused) {
@@ -46,6 +51,8 @@ som.addEventListener('timeupdate',() => {
       som.currentTime =(barra.value/100)*som.duration;
    }
   });
+
+
 
 
 

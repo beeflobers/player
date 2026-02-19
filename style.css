@@ -109,4 +109,17 @@ font-style: normal;
 
 }
 
+.start {
+color: #624785;
+display: inline-flex;
+}
 
+#pesquisar {
+margin-top: 20px;
+cursor: pointer;
+background-color:  #eee6ed;
+border-radius: 8px; 
+border: 1px solid #692569;
+
+
+}
