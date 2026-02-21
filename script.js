@@ -2,32 +2,42 @@ const btn = document.getElementById('botão-controle')
 const playIcon = btn.querySelector('.Play')
 const pauseIcon = btn.querySelector('.Pause')
 
-btn.addEventListener('click', () => {
-  if (playIcon.style.display === 'none') {
-    // Se o play está escondido, mostra o play e esconde o pause
-    playIcon.style.display = 'inline-block';
-    pauseIcon.style.display = 'none';
-    console.log("Música pausada"); // Aqui você colocaria musica.pause()
-  } else {
-    // Se o play está visível, esconde ele e mostra o pause
-    playIcon.style.display = 'none';
-    pauseIcon.style.display = 'inline-block';
-    console.log("Música tocando"); // Aqui você colocaria musica.play()
-  }
-});
 
-const botão = document.getElementById('botão-controle'); 
-const som = document.getElementById("musica");
+
+const botão = document.getElementById('botão-controle')
+const som = document.getElementById("musica")
+const barra = document.getElementById('barra-progresso')
+const pesquisar = document.getElementById ('pesquisar')
+
+
+pesquisar.addEventListener("click", () => {
+  buscar();
+  });
 
 botão.addEventListener("click", () => { 
     if (som.paused) {
-        som.play();   // Se estiver parado, toca
+        som.play(); 
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'inline-block'
     } else {
-        som.pause();  // Se estiver tocando, pausa
+        som.pause();
+        playIcon.style.display = 'inline-block'
+        pauseIcon.style.display = 'none'
     }
 });
 
-const barra = document.getElementById('barra-progresso');
+som.addEventListener('ended', () => { 
+  playIcon.style.display = 'inline-block';
+  pauseIcon.style.display = 'none';
+  barra.value = 0;
+
+});
+
+som.addEventListener('play', () => { 
+  playIcon.style.display = 'none';
+  pauseIcon.style.display = 'inline-block'
+
+});
 
 som.addEventListener('timeupdate',() => {
 
@@ -38,39 +48,50 @@ som.addEventListener('timeupdate',() => {
 
   barra.addEventListener("input", () => {
    if (som.duration) {
-      som.currentTime =(barra.value/100)*som.duration;
+      som.currentTime =(barra.value/100)*som.duration
    }
   });
 
-  async function buscar () {
-    const buscar = document.getElementById('buscar').value;
-    
 
+
+
+
+    async function buscar() {
+    const buscar = document.getElementById('buscar').value;
     const icone = document.getElementById ('botão-controle');
 
-    try {
-      const resposta = await fetch(`https://itunes.apple.com{encodeURIComponent(termo)}&entity=song&limit=1`);
-      
+    const urllamba = 'https://bmkfldnlyu7arv5swreozju5ne0wlmlw.lambda-url.us-east-1.on.aws/'
+
+     try {
+      const resposta = await fetch (`${urllamba}?artist=${encodeURIComponent(buscar)}`)
+
       if (!resposta.ok) {
         throw new Error('Erro na rede')
       }
-      
-    const dados = await resposta.json();
 
-    const imagem = document.getElementById('capa');
-    imagem.src = musica.artworkUrl100;
+    const dados = await resposta.json();
+    const musica = dados.results[0];
+
+
+    const imagem = document.getElementById('capa'); 
+    imagem.src = musica.artworkUrl100.replace("100x100bb.jpg","600x600bb.jpg")
+
 
     const titulo = document.getElementById('Nome-musica')
-    titulo.innerText = musica.trackName
+    titulo.innerText = musica.trackName;
 
     const som = document.getElementById('musica')
     som.src = musica.previewUrl;
 
     som.play();
-    icone.classList.replace('fa-play', 'fa-pause');
-
+    icone.classList.replace('fa-play', 'fa-pause ')
     }
-    catch(error) {
-      console.log("Ops, algo deu errado:", error);
+
+    catch (error) {
+      console.log("Ops, algo deu errado:", error)
     }
   }
+
+  alert('Pessoa que fez o player em aprendizagem, não espere perfeição')
+  confirm('ok?')
+  prompt('Qual o seu nome?')
