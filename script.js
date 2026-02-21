@@ -4,30 +4,30 @@ const pauseIcon = btn.querySelector('.Pause')
 
 btn.addEventListener('click', () => {
   if (playIcon.style.display === 'none') {
-    
-    playIcon.style.display = 'inline-block'
-    pauseIcon.style.display = 'none'
-    console.log("Música pausada")
+    // Se o play está escondido, mostra o play e esconde o pause
+    playIcon.style.display = 'inline-block';
+    pauseIcon.style.display = 'none';
+    console.log("Música pausada"); // Aqui você colocaria musica.pause()
   } else {
-    
+    // Se o play está visível, esconde ele e mostra o pause
     playIcon.style.display = 'none';
-    pauseIcon.style.display = 'inline-block'
-    console.log("Música tocando")
+    pauseIcon.style.display = 'inline-block';
+    console.log("Música tocando"); // Aqui você colocaria musica.play()
   }
 });
 
-const botão = document.getElementById('botão-controle')
-const som = document.getElementById("musica")
+const botão = document.getElementById('botão-controle'); 
+const som = document.getElementById("musica");
 
 botão.addEventListener("click", () => { 
     if (som.paused) {
-        som.play();   
+        som.play();   // Se estiver parado, toca
     } else {
-        som.pause();  
+        som.pause();  // Se estiver tocando, pausa
     }
 });
 
-const barra = document.getElementById('barra-progresso')
+const barra = document.getElementById('barra-progresso');
 
 som.addEventListener('timeupdate',() => {
 
@@ -43,21 +43,21 @@ som.addEventListener('timeupdate',() => {
   });
 
   async function buscar () {
-    const buscar = document.getElementById('buscar').value
+    const buscar = document.getElementById('buscar').value;
     
 
-    const icone = document.getElementById ('botão-controle')
+    const icone = document.getElementById ('botão-controle');
 
     try {
-      const resposta = await fetch(`https://itunes.apple.com{encodeURIComponent(termo)}&entity=song&limit=1`)
+      const resposta = await fetch(`https://itunes.apple.com{encodeURIComponent(termo)}&entity=song&limit=1`);
       
       if (!resposta.ok) {
         throw new Error('Erro na rede')
       }
       
-    const dados = await resposta.json()
+    const dados = await resposta.json();
 
-    const imagem = document.getElementById('capa')
+    const imagem = document.getElementById('capa');
     imagem.src = musica.artworkUrl100;
 
     const titulo = document.getElementById('Nome-musica')
@@ -67,13 +67,10 @@ som.addEventListener('timeupdate',() => {
     som.src = musica.previewUrl;
 
     som.play();
-    icone.classList.replace('fa-play', 'fa-pause')
+    icone.classList.replace('fa-play', 'fa-pause');
 
     }
     catch(error) {
-      console.log("Ops, algo deu errado:", error)
+      console.log("Ops, algo deu errado:", error);
     }
-     
   }
-
-  
