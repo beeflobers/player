@@ -76,6 +76,4 @@ som.addEventListener('timeupdate',() => {
      
   }
 
-  window.alert('Projeto em execução, não espere perfeição')
-  window.confirm('Ok?')
-  window.prompt('Qual o seu nome?')
+  
