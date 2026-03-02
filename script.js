@@ -99,7 +99,7 @@ som.addEventListener('timeupdate',() => {
     if(['ariana grande', 'blackpink', 'lisa', 'jennie','ari','ariana' ].includes(cantora.toLowerCase())) {
       alert('Que bad de escolha')
     } else {
-      alert('otíma escolha')
+      alert('ótima escolha')
     }
   
 
