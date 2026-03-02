@@ -1,12 +1,12 @@
-const btn = document.getElementById('botão-controle');
-const playIcon = btn.querySelector('.Play');
-const pauseIcon = btn.querySelector('.Pause');
+const btn = document.getElementById('botão-controle')
+const playIcon = btn.querySelector('.Play')
+const pauseIcon = btn.querySelector('.Pause')
 
 
 
-const botão = document.getElementById('botão-controle'); 
-const som = document.getElementById("musica");
-const barra = document.getElementById('barra-progresso');
+const botão = document.getElementById('botão-controle')
+const som = document.getElementById("musica")
+const barra = document.getElementById('barra-progresso')
 const pesquisar = document.getElementById ('pesquisar')
 
 
@@ -18,11 +18,11 @@ botão.addEventListener("click", () => {
     if (som.paused) {
         som.play(); 
         playIcon.style.display = 'none';
-        pauseIcon.style.display = 'inline-block';
+        pauseIcon.style.display = 'inline-block'
     } else {
         som.pause();
-        playIcon.style.display = 'inline-block';
-        pauseIcon.style.display = 'none';
+        playIcon.style.display = 'inline-block'
+        pauseIcon.style.display = 'none'
     }
 });
 
@@ -35,20 +35,20 @@ som.addEventListener('ended', () => {
 
 som.addEventListener('play', () => { 
   playIcon.style.display = 'none';
-  pauseIcon.style.display = 'inline-block';
+  pauseIcon.style.display = 'inline-block'
 
 });
 
 som.addEventListener('timeupdate',() => {
 
   if (som.duration) { 
-    barra.value = (som.currentTime/ som.duration) * 100;
+    barra.value = (som.currentTime/ som.duration) * 100
   }
   });
 
   barra.addEventListener("input", () => {
    if (som.duration) {
-      som.currentTime =(barra.value/100)*som.duration;
+      som.currentTime =(barra.value/100)*som.duration
    }
   });
 
@@ -63,34 +63,47 @@ som.addEventListener('timeupdate',() => {
     const urllamba = 'https://bmkfldnlyu7arv5swreozju5ne0wlmlw.lambda-url.us-east-1.on.aws/'
 
      try {
-      const resposta = await fetch (`${urllamba}?artist=${encodeURIComponent(buscar)}`);
-      
+      const resposta = await fetch (`${urllamba}?artist=${encodeURIComponent(buscar)}`)
+
       if (!resposta.ok) {
-        throw new Error('Erro na rede');
+        throw new Error('Erro na rede')
       }
 
     const dados = await resposta.json();
     const musica = dados.results[0];
-    
+
 
     const imagem = document.getElementById('capa'); 
-    imagem.src = musica.artworkUrl100.replace("100x100bb.jpg","600x600bb.jpg");
-  
+    imagem.src = musica.artworkUrl100.replace("100x100bb.jpg","600x600bb.jpg")
 
-    const titulo = document.getElementById('Nome-musica');
+
+    const titulo = document.getElementById('Nome-musica')
     titulo.innerText = musica.trackName;
 
     const som = document.getElementById('musica')
     som.src = musica.previewUrl;
 
     som.play();
-    icone.classList.replace('fa-play', 'fa-pause ');
+    icone.classList.replace('fa-play', 'fa-pause ')
     }
 
     catch (error) {
-      console.log("Ops, algo deu errado:", error);
+      console.log("Ops, algo deu errado:", error)
     }
   }
+
+  alert('Pessoa que fez o player em aprendizagem,  não espere perfeição')
+  confirm('ok?')
+  let nome = prompt('Qual o seu nome?')
+  alert('Seja Bem vindo, ' +  nome + '!')
+  alert(`seu nome tem ${nome.length} letras`)
+
+  let n1 = Number(prompt('Digite um número:')) 
+  let n2 = Number(prompt('Digite outro número:'))
+  var resultado = n1 + n2
+
+  alert(`a soma de ${n1} e ${n2} é ${resultado}` )
+
 
    let cantora = (prompt('qual a sua cantora favorita?'))
     /*console.log(cantora.includes['ariana grande', 'blackpink', 'lisa', 'jennie', 'ari' ]) */ // o include é usado para verificar a existencia de um valor, nesse caso esta em array 
