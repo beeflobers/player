@@ -92,15 +92,21 @@ som.addEventListener('timeupdate',() => {
     }
   }
 
-  alert('Pessoa que fez o player em aprendizagem,  não espere perfeição')
-  confirm('ok?')
-  let nome = prompt('Qual o seu nome?')
-  alert('Seja Bem vindo, ' +  nome + '!')
-  alert(`seu nome tem ${nome.length} letras`)
 
-  let n1 = Number(prompt('Digite um número:')) 
-  let n2 = Number(prompt('Digite outro número:'))
-  var resultado = n1 + n2
+   let cantora = (prompt('qual a sua cantora favorita?'))
+    /*console.log(cantora.includes['ariana grande', 'blackpink', 'lisa', 'jennie', 'ari' ]) */ // o include é usado para verificar a existencia de um valor, nesse caso esta em array 
+ 
+    if(['ariana grande', 'blackpink', 'lisa', 'jennie','ari','ariana' ].includes(cantora.toLowerCase())) {
+      alert('Que bad de escolha')
+    } else {
+      alert('ótima escolha')
+    }
+  
 
-  alert(`a soma de ${n1} e ${n2} é ${resultado}` )
 
+  
+  
+
+
+
+   
