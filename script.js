@@ -8,21 +8,36 @@ const botão = document.getElementById('botão-controle')
 const som = document.getElementById("musica")
 const barra = document.getElementById('barra-progresso')
 const pesquisar = document.getElementById ('pesquisar')
+const rotação = document.querySelector('.ativargiro')
+const Player = document.querySelector('.FundoPlayer')
 
-
+ 
 pesquisar.addEventListener("click", () => {
-  buscar();
-  });
+  buscar()
+  Player.classList.add('rotação')
+})
+
+window.addEventListener('keypress', () => {
+  if (event.key === 'Enter')
+    Player.classList.add('rotação')
+})
+
+
+
 
 botão.addEventListener("click", () => { 
     if (som.paused) {
         som.play(); 
         playIcon.style.display = 'none';
         pauseIcon.style.display = 'inline-block'
+        Player.classList.add('rotação')
+        
     } else {
         som.pause();
         playIcon.style.display = 'inline-block'
         pauseIcon.style.display = 'none'
+        Player.classList.remove('rotação')
+        
     }
 });
 
@@ -93,17 +108,7 @@ som.addEventListener('timeupdate',() => {
   }
 
 
-   let cantora = (prompt('qual a sua cantora favorita?'))
-    /*console.log(cantora.includes['ariana grande', 'blackpink', 'lisa', 'jennie', 'ari' ]) */ // o include é usado para verificar a existencia de um valor, nesse caso esta em array 
- 
-    if(['ariana grande', 'blackpink', 'lisa', 'jennie','ari','ariana' ].includes(cantora.toLowerCase())) {
-      alert('Que bad de escolha')
-    } else {
-      alert('ótima escolha')
-    }
   
-
-
   
   
 
