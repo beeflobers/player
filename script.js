@@ -71,47 +71,48 @@ som.addEventListener('timeupdate',() => {
 
 
 
-    async function buscar() {
+    function buscar() {
     const buscar = document.getElementById('buscar').value;
     const icone = document.getElementById ('botão-controle');
 
-    const urllamba = 'https://bmkfldnlyu7arv5swreozju5ne0wlmlw.lambda-url.us-east-1.on.aws/'
+     $.ajax({ // declara a função da bliblioteca jquery, 
+        url: "https://itunes.apple.com/search", // o endpoit ou url do itunes para buscar
+        data: { // o objeto data pega/contém os filtros da pesquisa 
+            term: buscar, // term é o campo de busca da apple, para buscar o meu valor de busca 
+            media: "music", // define oque eu quero na pesquisa, músicas 
+            limit: 10 // define um limite de 10 musicas para a pesquisa 
+      
+      },
+      dataType: "jsonp", // transforma os dados em um script, usa o jsonp // https://itunes.apple.com/search?term=valor_de_busca&media=music&limit=10
+      success:function(data) { // caso sucesso recebe os dados de volta e coloca na função  data 
+      try {
+         if (data.results && data.results.length > 0) {
+                const musica = data.results[0]; 
 
-     try {
-      const resposta = await fetch (`${urllamba}?artist=${encodeURIComponent(buscar)}`)
+                const imagem = document.getElementById('capa');
+                imagem.src = musica.artworkUrl100.replace("100x100bb.jpg", "600x600bb.jpg");
 
-      if (!resposta.ok) {
-        throw new Error('Erro na rede')
-      }
+                const titulo = document.getElementById('Nome-musica');
+                titulo.innerText = musica.trackName;
 
-    const dados = await resposta.json();
-    const musica = dados.results[0];
+                const som = document.getElementById('musica');
+                som.src = musica.previewUrl;
 
-
-    const imagem = document.getElementById('capa'); 
-    imagem.src = musica.artworkUrl100.replace("100x100bb.jpg","600x600bb.jpg")
-
-
-    const titulo = document.getElementById('Nome-musica')
-    titulo.innerText = musica.trackName;
-
-    const som = document.getElementById('musica')
-    som.src = musica.previewUrl;
-
-    som.play();
-    icone.classList.replace('fa-play', 'fa-pause ')
+                som.play();
+                icone.classList.replace('fa-play', 'fa-pause');
+            } else {
+                console.log("Nenhuma música encontrada.");
+            }
+        } catch (error) {
+            console.log("Ops, algo deu errado:", error);
+        }
+    },
+    error: function(xhr, status, error) {  
+        console.log("Erro na requisição:", error);
     }
+});
+ }
+     
 
-    catch (error) {
-      console.log("Ops, algo deu errado:", error)
-    }
-  }
-
-
-  
-  
-  
-
-
-
-   
+// A api do itunes não aceita não aceita as requsições do meu localhost da erro de cors, para a função de busca funcionar é preciso usar uma função da bliblioteca do jquery 
+// o jsonp que transforma  uma requisição em um script do tipo get, que é as informações na url 
