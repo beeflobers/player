@@ -92,8 +92,11 @@ som.addEventListener('timeupdate',() => {
                 const imagem = document.getElementById('capa');
                 imagem.src = musica.artworkUrl100.replace("100x100bb.jpg", "600x600bb.jpg");
 
-                const titulo = document.getElementById('Nome-musica');
-                titulo.innerText = musica.artistName
+                const cantor = document.getElementById('Nome-cantor');
+                cantor.innerText = musica.artistName
+
+                const melodia = getElementById('Nome-musica')
+                melodia.innerText = musica.trackName
 
                 const som = document.getElementById('musica');
                 som.src = musica.previewUrl;

@@ -108,11 +108,18 @@ input[type="text"]:focus {
 h2 {
 
 font-family: "Kiwi Maru", serif;
+font-weight: 300;
+color: #000000;
+font-style: normal;
+}
+
+h1 {
+font-family: "Kiwi Maru", serif;
 font-weight: 400;
 color: #000000;
 font-style: normal;
-
 }
+
 
 .start {
 color: #624785;
