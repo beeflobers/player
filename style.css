@@ -10,12 +10,19 @@
     margin-bottom: 20px;
     position: relative;
     align-items: center;
+    animation: rotacao 15s linear infinite;
+    animation-play-state: paused;
     
 }
 
  
- .rotação {
-   animation: rotação 15s linear infinite
+ .rotacao {
+   animation-play-state:running;
+ }
+
+
+ .pausada {
+    animation-play-state: paused;
  }
 
 
@@ -26,6 +33,7 @@ justify-content: center;
 align-items: center;
 margin: 0;
 height: 90vh;
+
 
 
 }
@@ -135,7 +143,7 @@ border: 1px solid #692569;
 }
 
 
-@keyframes rotação {
+@keyframes rotacao {
     from {
         transform: rotate(0deg)
 }
@@ -144,7 +152,15 @@ border: 1px solid #692569;
    }
 }
     
-
+@media (1024px <= width <= 1440px) {
+    .Conteiner-principal {
+    max-width: 1200px;
+    top: 30px;
+    padding: 20px 80px 70px;
+    margin: 0 auto;
+    }
+ 
+}
     
 
 
