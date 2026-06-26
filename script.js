@@ -54,6 +54,7 @@ som.addEventListener('ended', () => {
 som.addEventListener('play', () => { 
   playIcon.style.display = 'none';
   pauseIcon.style.display = 'inline-block'
+  Player.classList.add('rotacao')
 
 });
 
@@ -116,8 +117,6 @@ const InfoMusic = (musica, icone) => {
 
                 direita.addEventListener('click', () => {
                if (musicasindex >= resultados.length - 1) {
-                musicasindex = 0
-                 
             } else {
               musicasindex++
 
@@ -126,10 +125,9 @@ const InfoMusic = (musica, icone) => {
 
           esquerda.addEventListener('click', () => {
                if (musicasindex <= resultados.length - 1) {
-            } else {
-              musicasindex--
-
-            } InfoMusic(resultados[musicasindex], icone)
+                musicasindex--
+            }  
+             InfoMusic(resultados[musicasindex], icone)
           })
 
             } else {
