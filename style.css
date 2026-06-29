@@ -58,7 +58,7 @@ height: 90vh;
 
 
 .Conteiner-principal {
-
+    margin: 0 auto;
     text-align: center;
     background-color: #e2b1d2;
     padding: 90px;
@@ -104,13 +104,19 @@ footer {
 input[type="text"] { 
     width: 70%;
     display: block;
-    margin-top: 40px;
-   
+    margin-top: 25px;
+    padding: 10px 16px;
+    border: 1.5px solid #a13d75; 
+    border-radius: 25px; 
+    font-size: 14px;
+    outline: none;
+    background-color: #fff;
+    color: #333;
 }
 
 input[type="text"]:focus {
-    border-color:#050000;
-    outline: none;
+border-color: #3a0022; 
+box-shadow: 0 0 8px rgba(161, 61, 117, 0.3);
 }
 
 h2 {
@@ -138,18 +144,24 @@ display: inline-flex;
 display: flex;
 align-items: center;
 padding: 10px 16px 8px 8px;
-gap: 4px;
+gap: 8px;
+padding: 10px 24px;
+border: none;
 margin-top: 20px;
 cursor: pointer;
-background-color:  #e9e6ee;
+background-color:#ac2780;
+font-weight: 600;
+transition: background-color 0.2s ease, transform 0.1s ease;
 border-radius: 24px; 
 border: 5px rgb(192, 142, 192) #3d073d;
-font-size: 15px;
-
-
-
-
+font-size: 14px;
+color: #ffffff;
 }
+
+#pesquisar:hover {
+     background-color: #831453;
+}
+
 
 
 @keyframes rotacao {
