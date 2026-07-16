@@ -17,7 +17,7 @@
 <audio id="musica"></audio>
 
 
-<div class="Conteiner-principal">
+<main class="Conteiner-principal">
 
 
 <header>
@@ -27,32 +27,41 @@
 </header>
 
 
-<footer> 
-  <i class="fa-solid fa-backward Esquerda"></i>
+<nav class="controles-player">
+
+<button class="botao-controle" id="btn-voltar">
+    <i class="fa-solid fa-backward Esquerda"></i>
+</button>
+
+<button class="botao-controle" id="btn-play-pause">
+ <i class="fa-solid fa-play Play" id="icone-play"></i>
+ <i class="fa-solid fa-circle-pause Pause"  id="icone-pause" style="display: none;"></i>   
+</button>
 
 
-<button class="botão" id="botão-controle">
 
-  
-  
-<i class="fa-solid fa-play Play"> </i>
-<i class="fa-solid fa-circle-pause Pause" style="display: none;"></i> 
- </button> 
+ <button class="botao-controle" id="btn-avancar">
 <i class="fa-solid fa-forward Direita"></i>
-<input type="range" id="barra-progresso" value="0" max="100">
-</footer>
+</button>
+</nav>
 
+<input type="range" id="barra-progresso" value="0" max="100">
 
 <input type="text" id="buscar" placeholder="Digite o nome da música ou do cantor" onkeydown="if(event.key === 'Enter') buscar()"> 
 
 
 <button id="pesquisar">
 <i class="fa-solid fa-magnifying-glass"></i>
-Pesquisar</button> 
+Pesquisar</button>
+</main>
 
+<footer>
+    <p>&copy; Mirela Araujo Silva </p>
+</footer>
 
-</div>
 </body>
+
+
 
 </html>
 

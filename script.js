@@ -1,10 +1,12 @@
-const btn = document.getElementById('botão-controle')
-const pauseIcon = btn.querySelector('.Pause')
-const playIcon = btn.querySelector('.Play')
+const btn = document.getElementById('btn-play-pause')
+const pauseIcon = document.getElementById('icone-pause')
+const playIcon = document.getElementById('icone-play')
 
 
 
-const botão = document.getElementById('botão-controle')
+
+
+
 const som = document.getElementById("musica")
 const barra = document.getElementById('barra-progresso')
 const pesquisar = document.getElementById ('pesquisar')
@@ -27,7 +29,7 @@ window.addEventListener('keypress', () => {
 
 
 
-botão.addEventListener("click", () => { 
+btn.addEventListener("click", () => { 
     if (som.paused) {
         som.play(); 
         playIcon.style.display = 'none';
@@ -42,6 +44,12 @@ botão.addEventListener("click", () => {
         
     }
 });
+
+
+
+ 
+
+
 
 som.addEventListener('ended', () => { 
   playIcon.style.display = 'inline-block';
@@ -92,9 +100,11 @@ const InfoMusic = (musica, icone) => {
 
     function buscar() {
     const buscar = document.getElementById('buscar').value;
-    const icone = document.getElementById ('botão-controle');
-    const direita = document.querySelector('.Direita')
-    const esquerda = document.querySelector('.Esquerda')
+    const icone = document.getElementById ("btn-play-pause")
+    const controle = document.querySelector('.controles-player')
+    
+    const avancar = document.querySelector('#btn-avancar')
+    const voltar = document.querySelector('#btn-voltar')
     
 
      $.ajax({ // declara a função da bliblioteca jquery, 
@@ -115,20 +125,24 @@ const InfoMusic = (musica, icone) => {
                 let musicasindex = 0
                 let musicas = resultados[musicasindex]
 
-                direita.addEventListener('click', () => {
-               if (musicasindex >= resultados.length - 1) {
+                avancar.onclick = () => {
+               if (musicasindex > resultados.length - 1) {
             } else {
               musicasindex++
+              InfoMusic(resultados[musicasindex], icone)
 
-            } InfoMusic(resultados[musicasindex], icone)
-          })
+            } 
+          }
 
-          esquerda.addEventListener('click', () => {
+          voltar.onclick = () => {
                if (musicasindex <= resultados.length - 1) {
                 musicasindex--
+                InfoMusic(resultados[musicasindex], icone)
             }  
-             InfoMusic(resultados[musicasindex], icone)
-          })
+             
+          }
+
+                
 
             } else {
                 console.log("Nenhuma música encontrada.");
