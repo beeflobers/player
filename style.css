@@ -254,7 +254,6 @@ footer {
 white-space: nowrap;
 overflow: hidden;
 text-overflow: ellipsis;
-font-size: 15px;
 }
  #barra-progresso {
     margin-left: 10%;
