@@ -241,6 +241,8 @@ footer {
         background-color: color-mix(in srgb, purple 15%, pink);
         border-radius: 8px;
         overflow-y: auto;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
         
     }
 
