@@ -231,15 +231,16 @@ footer {
 
 @media (max-width: 768px) {
     .Conteiner-principal {
-        width: 90%;
+       
+        width: 87%;
         height: auto;
         max-height: 80vh;
         top: 10px;
-        padding: 20px; 
-        gap: 15px;
+        padding: 15px ; 
+        gap: 13px;
         margin: 0 auto;
         background-color: color-mix(in srgb, purple 15%, pink);
-        border-radius: 8px;
+        border-radius: 20px;
         overflow-y: auto;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
@@ -250,17 +251,16 @@ footer {
   margin: 0 auto;
     }
 
-  #Nome-cantor, #Nome-musica {
-    width: 100%;
-    overflow-x: auto;
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;
--webkit-overflow-scrolling: touch;
-}
+   
+    
  #barra-progresso {
-    margin-left: 10%;
+    margin-left: 7%;
  } 
+
+.botao-controle{
+    right: 35%
+    
+}
 
 }
 
