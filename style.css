@@ -232,7 +232,7 @@ footer {
 @media (max-width: 768px) {
     .Conteiner-principal {
        
-        width: 87%;
+        width: 90%;
         height: auto;
         max-height: 80vh;
         top: 10px;
@@ -261,6 +261,15 @@ footer {
     right: 35%
     
 }
+    
+#Nome-cantor, #Nome-musica {
+width: fit-content; 
+    margin: 0 auto;
+    overflow: hidden;
+text-overflow: ellipsis;
+}
+
+    
 
 #Nome-cantor, #Nome-musica {
 font-size: 20px;
