@@ -269,6 +269,12 @@ white-space: normal;
 text-align: center;
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+
 }
 
 
