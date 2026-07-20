@@ -107,7 +107,7 @@ nav {
 
 #barra-progresso {
     accent-color: #ac2780;
-    margin-top: -40px;
+    margin-top: -53px;
     margin-right: -60%;
 }
 
@@ -208,22 +208,23 @@ footer {
 }
 
 
-@media (1024px <= width <= 1440px) and (650px <= height <= 900px  )  {
+@media (1024px <= width <= 1440px) and (600px <= height <= 900px  )  {
     .Conteiner-principal {
     max-height: 90vh;
     padding: 30px 60px;
     gap: 10px;
-   
+ top: -15px;
     margin: 0 auto;
     }
 
 body {
 padding: 20px 0;
- overflow: hidden;
+overflow: hidden;
+ 
 }
 
 footer {
- margin-top: -19px;
+ margin-top: -45px;
 }
 
  
