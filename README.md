@@ -2,6 +2,11 @@
 
 Um projeto de player de música interativo, Ele simula um aplicativo de streaming real, realizando buscas e reproduzindo prévias de músicas diretamente do navegador.
 
+⚠️ Este projeto utiliza a API do iTunes para buscar informações de músicas e reproduzir prévias de 30 segundos disponibilizadas pela Apple. Todos os direitos das músicas pertencem aos seus respectivos proprietários.
+
+
+
+
 ##  Funcionalidades
 * **Busca Dinâmica:** Integração com a API do iTunes para pesquisar faixas reais.
 * **Reprodução de Áudio:** Toca os 30 segundos de prévia musical disponibilizados pela API.
