@@ -227,7 +227,10 @@ footer {
  margin-top: -45px;
 }
 
- 
+.botao-controle {
+    top: -10px ;
+}
+
 }
 
 @media (max-width: 768px) {
